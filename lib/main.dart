@@ -9,8 +9,7 @@ void callbackDispatcher() {
   Workmanager.executeTask((task, inputData) async {
     switch (task) {
       case fetchBackground:
-        Position userLocation = await Geolocator()
-            .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+        Position userLocation = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
         notif.Notification notification = new notif.Notification();
         notification.showNotificationWithoutSound(userLocation);
         break;
@@ -74,10 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Position position;
 
   void _getUserPosition() async {
-    GeolocationStatus geolocationStatus =
-        await Geolocator().checkGeolocationPermissionStatus();
-    Position userLocation = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    GeolocationStatus geolocationStatus = await Geolocator().checkGeolocationPermissionStatus();
+    Position userLocation = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 
     setState(() {
       position = userLocation;
@@ -110,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               this.position.toString(),
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ],
         ),
